@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Details</title>
+    <!-- Include Bootstrap CSS from WebJars-->
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Room Details</h2>
+    <div class="card">
+        <div class="card-header">
+            Room Number: <span th:text="${room.roomNumber}">Room Number</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Capacity: <span th:text="${room.capacity}">Capacity</span></h5>
+            <p class="card-text">Vacancy: <span th:text="${room.vacancy}">Vacancy</span></p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll Number</th>
+                    <th>CGPA</th>
+                    <th>Contact</th>
+                    <th>Parent contact</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student : ${room.students}">
+                    <td th:text="${student.name}">Student Name</td>
+                    <td th:text="${student.rollNumber}">Roll Number</td>
+                    <td th:text="${student.cgpa}">CGPA</td>
+                    <td th:text="${student.phoneNo}">Phone Number</td>
+                    <td th:text="${student.parentNo}">Parent Number</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

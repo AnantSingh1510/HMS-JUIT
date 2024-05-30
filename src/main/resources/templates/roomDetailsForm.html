@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Room Details Form</title>
+    <!-- Include Bootstrap CSS from WebJars-->
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h2>View Student Room Details</h2>
+    <form th:action="@{/manage/rooms/view/details}" method="post">
+        <div class="mb-3">
+            <label for="rollNumber" class="form-label">Enter Student Roll Number:</label>
+            <input type="text" class="form-control" id="rollNumber" name="rollNumber" placeholder="Enter student roll number">
+        </div>
+        <button type="submit" class="btn btn-primary">View Room Details</button>
+    </form>
+</div>
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

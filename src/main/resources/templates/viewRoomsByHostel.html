@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Rooms by Hostel</title>
+    <!-- Include Bootstrap CSS from WebJars-->
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h2>View Rooms by Hostel</h2>
+    <form th:action="@{/manage/rooms/allbyhostel}" method="get">
+        <div class="mb-3">
+            <label for="hostel" class="form-label">Enter Hostel Name:</label>
+            <input type="text" class="form-control" id="hostel" name="hostel" placeholder="Enter hostel name">
+        </div>
+        <button type="submit" class="btn btn-primary">View Rooms</button>
+    </form>
+
+    <!-- Display rooms of the selected hostel -->
+    <div th:if="${rooms != null}">
+        <h3 class="mt-4">Rooms in Hostel: <span th:text="${hostelName}"></span></h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Vacancy</th>
+                <th>Capacity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="room : ${rooms}">
+                <td th:text="${room.roomNumber}"></td>
+                <td th:text="${room.vacancy}"></td>
+                <td th:text="${room.capacity}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Display error message if no rooms found for the hostel -->
+    <div th:if="${error != null}">
+        <div class="alert alert-danger" th:text="${error}"></div>
+    </div>
+</div>
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* custom.css */
+
+/* Hero Section */
+.hero-section {
+    background: url('/images/hostel.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+/* Features Section */
+.features-section .feature {
+    margin-bottom: 30px;
+}
+
+.features-section .feature i {
+    color: #007bff;
+}
